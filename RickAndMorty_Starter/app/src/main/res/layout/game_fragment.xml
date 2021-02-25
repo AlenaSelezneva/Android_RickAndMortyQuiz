@@ -19,7 +19,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="gameViewModel"
             type="com.example.android.rickandmorty.screens.game.GameViewModel" />
@@ -39,7 +38,7 @@
             android:layout_marginBottom="156dp"
             android:animateLayoutChanges="true"
             android:fontFamily="sans-serif"
-            android:text="@{@string/quote_format(gameViewModel.word)}"
+            android:text="@{@string/quote_format(context.getText(gameViewModel.question))}"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:textColor="@color/black_text_color"
             android:textSize="34sp"
@@ -90,11 +89,11 @@
             app:layout_constraintGuide_end="96dp" />
 
         <Button
-            android:id="@+id/end_game_button"
+            android:id="@+id/btnNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:onClick="@{() -> gameViewModel.onGameFinish()}"
+            android:onClick="@{() -> gameViewModel.onNext()}"
             android:text="@string/next"
             android:theme="@style/SkipButton"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -108,7 +107,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:text="@string/rb_false"
+            android:text="@string/rb_true"
+            android:onClick="@{() -> gameViewModel.onAnswer(true)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/rbFalse"
             app:layout_constraintStart_toEndOf="@+id/previous_button"
@@ -120,9 +120,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:text="@string/rb_true"
+            android:text="@string/rb_false"
+            android:onClick="@{() -> gameViewModel.onAnswer(false)}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/end_game_button"
+            app:layout_constraintEnd_toStartOf="@+id/btnNext"
             app:layout_constraintStart_toEndOf="@+id/rbTrue"
             app:layout_constraintTop_toTopOf="@+id/guideline" />
 

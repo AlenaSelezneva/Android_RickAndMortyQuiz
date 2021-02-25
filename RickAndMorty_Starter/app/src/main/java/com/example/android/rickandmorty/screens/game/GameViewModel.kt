@@ -100,7 +100,7 @@ class GameViewModel : ViewModel() {
         updateCurrentQuestion()
     }
 
-    public fun answer( ans:Boolean){
+    public fun onAnswer( ans:Boolean){
         if (_question.value?.answer == ans)
             onCorrect()
         else
