@@ -1,4 +1,4 @@
-package com.example.android.guesstheword.screens.game
+package com.example.android.rickandmorty.screens.game
 
 import android.os.Bundle
 import android.util.Log
@@ -10,9 +10,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment
-import com.example.android.guesstheword.R
-import com.example.android.guesstheword.databinding.GameFragmentBinding
+import com.example.android.rickandmorty.R
+import com.example.android.rickandmorty.databinding.GameFragmentBinding
 import androidx.navigation.fragment.NavHostFragment.findNavController
 
 /**
@@ -42,13 +41,13 @@ class GameFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
 
         /** Setting up LiveData observation relationship **/
-//        viewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
-//            binding.scoreText.text = newScore.toString()
-//        })
+        viewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
+            binding.scoreText.text = newScore.toString()
+        })
 
-//        viewModel.word.observe(viewLifecycleOwner, Observer { newWord ->
-//            binding.wordText.text = newWord
-//        })
+        viewModel.question.observe(viewLifecycleOwner, Observer { newQuestion ->
+            binding.questionText.text = context?.getText(newQuestion.questionID)
+        })
 
         // Observer for the Game finished event
         viewModel.eventGameFinish.observe(viewLifecycleOwner, Observer<Boolean> { hasFinished ->

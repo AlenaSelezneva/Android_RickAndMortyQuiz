@@ -1,7 +1,7 @@
-package com.example.android.guesstheword.screens.game
+package com.example.android.rickandmorty.screens.game
 
-data class Question(
+/*data class Question(
         val questionID: Int,
         val answer: Boolean,
         var attempted:Boolean = false
-)
+)*/

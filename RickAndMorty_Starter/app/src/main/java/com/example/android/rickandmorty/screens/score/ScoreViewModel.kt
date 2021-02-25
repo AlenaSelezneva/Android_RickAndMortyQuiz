@@ -1,4 +1,4 @@
-package com.example.android.guesstheword.screens.score
+package com.example.android.rickandmorty.screens.score
 
 import android.util.Log
 import androidx.lifecycle.LiveData

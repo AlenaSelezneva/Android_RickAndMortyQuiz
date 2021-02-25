@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.guesstheword.screens.score
+package com.example.android.rickandmorty.screens.score
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -25,9 +25,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
-import com.example.android.guesstheword.R
-import com.example.android.guesstheword.databinding.ScoreFragmentBinding
+import com.example.android.rickandmorty.R
+import com.example.android.rickandmorty.databinding.ScoreFragmentBinding
 
 /**
  * Fragment where the final score is shown, after the game is over

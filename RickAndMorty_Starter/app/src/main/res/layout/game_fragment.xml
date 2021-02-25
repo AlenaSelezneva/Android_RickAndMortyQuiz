@@ -22,7 +22,7 @@
 
         <variable
             name="gameViewModel"
-            type="com.example.android.guesstheword.screens.game.GameViewModel" />
+            type="com.example.android.rickandmorty.screens.game.GameViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,75 +31,24 @@
         android:layout_height="match_parent"
         tools:context=".screens.game.GameFragment">
 
-        <TextView
-            android:id="@+id/word_is_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="sans-serif"
-            android:text="@string/word_is"
-            android:textColor="@color/black_text_color"
-            android:textSize="14sp"
-            android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@+id/word_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
-            android:id="@+id/word_text"
+            android:id="@+id/question_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="156dp"
             android:animateLayoutChanges="true"
             android:fontFamily="sans-serif"
+            android:text="@{@string/quote_format(gameViewModel.word)}"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:textColor="@color/black_text_color"
-            android:text="@{@string/quote_format(gameViewModel.word)}"
             android:textSize="34sp"
             android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@+id/score_text"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/word_is_text"
             app:layout_constraintVertical_chainStyle="packed"
             tools:text="&quot;Tuna&quot;" />
-
-        <TextView
-            android:id="@+id/hint_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif"
-            android:textColor="@color/grey_text_color"
-            android:text="@{gameViewModel.wordHint}"
-            android:textSize="14sp"
-            android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@+id/timer_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="0:00" />
-
-        <TextView
-            android:id="@+id/timer_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif"
-            android:textColor="@color/grey_text_color"
-            android:text="@{gameViewModel.currentTimeString}"
-            android:textSize="14sp"
-            android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@+id/score_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="0:00" />
 
         <TextView
             android:id="@+id/score_text"
@@ -118,17 +67,20 @@
             tools:text="Score: 2" />
 
         <Button
-            android:id="@+id/skip_button"
+            android:id="@+id/previous_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@string/skip"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:onClick="@{() -> gameViewModel.onPrevious()}"
+            android:text="@string/previous"
             android:theme="@style/SkipButton"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/rbTrue"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline"
-            android:onClick="@{() -> gameViewModel.onSkip()}"/>
+            app:layout_constraintTop_toTopOf="@+id/guideline" />
+
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
@@ -138,30 +90,41 @@
             app:layout_constraintGuide_end="96dp" />
 
         <Button
-            android:id="@+id/correct_button"
+            android:id="@+id/end_game_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:onClick="@{() -> gameViewModel.onGameFinish()}"
+            android:text="@string/next"
+            android:theme="@style/SkipButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rbFalse"
+            app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+        <RadioButton
+            android:id="@+id/rbTrue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:text="@string/got_it"
-            android:theme="@style/GoButton"
+            android:text="@string/rb_false"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/end_game_button"
-            app:layout_constraintStart_toEndOf="@+id/skip_button"
-            app:layout_constraintTop_toTopOf="@+id/guideline"
-            android:onClick="@{() -> gameViewModel.onCorrect()}" />
+            app:layout_constraintEnd_toStartOf="@+id/rbFalse"
+            app:layout_constraintStart_toEndOf="@+id/previous_button"
+            app:layout_constraintTop_toTopOf="@+id/guideline" />
 
-        <Button
-            android:id="@+id/end_game_button"
+        <RadioButton
+            android:id="@+id/rbFalse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:text="@string/end_game"
-            android:theme="@style/SkipButton"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/rb_true"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline"
-            android:onClick="@{() -> gameViewModel.onGameFinish()}" />
+            app:layout_constraintEnd_toStartOf="@+id/end_game_button"
+            app:layout_constraintStart_toEndOf="@+id/rbTrue"
+            app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
