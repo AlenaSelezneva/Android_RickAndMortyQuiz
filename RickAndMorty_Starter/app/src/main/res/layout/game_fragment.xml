@@ -48,7 +48,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintVertical_chainStyle="packed"
                 tools:text="&quot;Tuna&quot;" />
-                        android:text="@{@string/quote_format(context.getText(gameViewModel.question))}"
 
             <TextView
                 android:id="@+id/score_text"
@@ -78,8 +77,9 @@
                 app:layout_constraintEnd_toStartOf="@+id/rbTrue"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/guideline" />
-        <!--                android:onClick="@{() -> gameViewModel.onPrevious()}"-->
+                app:layout_constraintTop_toTopOf="@+id/guideline"
+                android:onClick="@{() -> gameViewModel.onPrevious()}"
+                />
 
 
             <androidx.constraintlayout.widget.Guideline
@@ -99,8 +99,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/rbFalse"
-                app:layout_constraintTop_toTopOf="@+id/guideline" />
-        <!--                android:onClick="@{() -> gameViewModel.onNext()}"-->
+                app:layout_constraintTop_toTopOf="@+id/guideline"
+                android:onClick="@{() -> gameViewModel.onNext()}" />
+
 
             <RadioButton
                 android:id="@+id/rbTrue"
@@ -112,8 +113,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/rbFalse"
                 app:layout_constraintStart_toEndOf="@+id/previous_button"
-                app:layout_constraintTop_toTopOf="@+id/guideline" />
-        <!--                android:onClick="@{() -> gameViewModel.onAnswer(true)}"-->
+                app:layout_constraintTop_toTopOf="@+id/guideline"
+                android:onClick="@{() -> gameViewModel.onAnswer(true)}"/>
+        <!--                -->
 
             <RadioButton
                 android:id="@+id/rbFalse"
@@ -125,8 +127,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btnNext"
                 app:layout_constraintStart_toEndOf="@+id/rbTrue"
-                app:layout_constraintTop_toTopOf="@+id/guideline" />
-        <!--                android:onClick="@{() -> gameViewModel.onAnswer(false)}"-->
+                app:layout_constraintTop_toTopOf="@+id/guideline"
+                android:onClick="@{() -> gameViewModel.onAnswer(false)}"/>
+        <!--                -->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
