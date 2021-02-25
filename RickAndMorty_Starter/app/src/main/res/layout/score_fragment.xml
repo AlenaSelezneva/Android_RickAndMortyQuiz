@@ -34,9 +34,9 @@
             android:id="@+id/you_scored_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="26dp"
             android:fontFamily="sans-serif"
-            android:text="@string/you_scored"
+            android:text="@{@string/final_score_format(scoreViewModel.score, scoreViewModel.numberOfQuestions)}"
             android:textColor="@color/black_text_color"
             android:textSize="14sp"
             android:textStyle="normal"
@@ -44,7 +44,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
@@ -52,13 +52,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
             android:fontFamily="sans-serif"
-            android:textColor="@color/black_text_color"
             android:text="@{String.valueOf(scoreViewModel.score)}"
+            android:textColor="@color/black_text_color"
             android:textSize="34sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@+id/play_again_button"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -66,19 +65,15 @@
             app:layout_constraintVertical_chainStyle="packed"
             tools:text="40" />
 
-        <Button
-            android:id="@+id/play_again_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:text="@string/play_again"
-            android:theme="@style/GoButton"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="400dp"
+            android:layout_height="256dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.454"
             app:layout_constraintStart_toStartOf="parent"
-            android:onClick="@{() -> scoreViewModel.onPlayAgain()}"
-            />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/rnm04" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

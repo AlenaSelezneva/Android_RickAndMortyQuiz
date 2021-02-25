@@ -25,38 +25,35 @@
         tools:context=".screens.title.TitleFragment">
 
         <TextView
-            android:id="@+id/get_ready_text"
+            android:id="@+id/txtRickAndMorty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
             android:fontFamily="sans-serif"
-            android:text="@string/get_ready"
+            android:text="@string/rickAndMorty"
             android:textColor="@color/black_text_color"
-            android:textSize="14sp"
+            android:textSize="34sp"
             android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@+id/title_text"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.519"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
-            android:id="@+id/title_text"
+            android:id="@+id/txtQuiz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:fontFamily="sans-serif"
-            android:text="@string/title_text"
+            android:text="@string/quiz"
             android:textColor="@color/black_text_color"
             android:textSize="34sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@+id/play_game_button"
+            app:layout_constraintBottom_toTopOf="@+id/imageView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/get_ready_text"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <Button
@@ -69,6 +66,17 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="385dp"
+            android:layout_height="377dp"
+            android:layout_marginTop="114dp"
+            app:layout_constraintBottom_toTopOf="@+id/play_game_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_text"
+            app:srcCompat="@drawable/rnm01" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

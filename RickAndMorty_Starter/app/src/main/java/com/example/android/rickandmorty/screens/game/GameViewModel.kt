@@ -141,6 +141,10 @@ class GameViewModel : ViewModel() {
     fun onGameFinishComplete() {
         _eventGameFinish.value = false
     }
+
+    fun getNumberOfQuestions():Int{
+        return questionBank.size;
+    }
 }
 
 //package com.example.android.rickandmorty.screens.game

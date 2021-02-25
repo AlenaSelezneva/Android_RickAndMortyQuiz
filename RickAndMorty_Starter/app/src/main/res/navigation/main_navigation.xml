@@ -65,5 +65,9 @@
             android:name="score"
             android:defaultValue="0"
             app:argType="integer" />
+        <argument
+            android:name="numberOfQuestions"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 </navigation>
