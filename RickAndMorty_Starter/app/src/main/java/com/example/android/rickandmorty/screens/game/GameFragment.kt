@@ -49,6 +49,27 @@ class GameFragment : Fragment() {
 
         viewModel.question.observe(viewLifecycleOwner, Observer { newQuestion ->
             binding.questionText.text = context?.getText(newQuestion.questionID)
+
+            if (newQuestion.attempted){
+//                binding.rbTrue.isEnabled = false;
+//                binding.rbFalse.isEnabled = false;
+
+                if (newQuestion.answer && newQuestion.answered || newQuestion.answer && !newQuestion.answered){
+                    binding.rbTrue.isChecked = true;
+                    binding.rbFalse.isChecked = false;
+                }else{
+                    binding.rbFalse.isChecked = true;
+                    binding.rbTrue.isChecked = false;
+                }
+
+            }else{
+                binding.rbFalse.isChecked = false;
+                binding.rbTrue.isChecked = false;
+
+//                binding.rbTrue.isEnabled = true;
+//                binding.rbFalse.isEnabled = true;
+            }
+
         })
 
 //        viewModel.word.observe(viewLifecycleOwner, Observer { newWord ->

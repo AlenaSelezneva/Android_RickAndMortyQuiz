@@ -37,6 +37,11 @@ class GameViewModel : ViewModel() {
     private var currentQuestionIndex:Int = 0;
     private var questionsAnswered: Int = 0;
 
+    // The previous answer
+//    private val _currentAnswer = MutableLiveData<Boolean>()
+//    val currentAnswer: LiveData<Boolean>
+//        get() = _currentAnswer
+
 
     /**
      * Resets the list of words and randomizes the order
@@ -106,7 +111,9 @@ class GameViewModel : ViewModel() {
             onCorrect()
         else
             onWrong()
+
         questionsAnswered++;
+        updateCurrentQuestion()
 
         if (questionsAnswered >= questionBank.size)
             onGameFinish()

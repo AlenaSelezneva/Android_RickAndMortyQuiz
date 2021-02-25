@@ -32,24 +32,26 @@
             tools:context=".screens.game.GameFragment">
 
 
-            <TextView
-                android:id="@+id/question_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="156dp"
-                android:animateLayoutChanges="true"
-                android:fontFamily="sans-serif"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textColor="@color/black_text_color"
-                android:textSize="34sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toTopOf="@+id/score_text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintVertical_chainStyle="packed"
-                tools:text="&quot;Tuna&quot;" />
+        <TextView
+            android:id="@+id/question_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="92dp"
+            android:animateLayoutChanges="true"
+            android:fontFamily="sans-serif"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/black_text_color"
+            android:textSize="34sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@+id/score_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="&quot;Tuna&quot;" />
 
-            <TextView
+        <TextView
                 android:id="@+id/score_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -114,8 +116,9 @@
                 app:layout_constraintEnd_toStartOf="@+id/rbFalse"
                 app:layout_constraintStart_toEndOf="@+id/previous_button"
                 app:layout_constraintTop_toTopOf="@+id/guideline"
-                android:onClick="@{() -> gameViewModel.onAnswer(true)}"/>
-        <!--                -->
+                android:onClick="@{() -> gameViewModel.onAnswer(true)}"
+                android:enabled="@{!gameViewModel.question.attempted}"/>
+        <!--                        android:checked="@{gameViewModel.question.answered}"        -->
 
             <RadioButton
                 android:id="@+id/rbFalse"
@@ -128,8 +131,21 @@
                 app:layout_constraintEnd_toStartOf="@+id/btnNext"
                 app:layout_constraintStart_toEndOf="@+id/rbTrue"
                 app:layout_constraintTop_toTopOf="@+id/guideline"
-                android:onClick="@{() -> gameViewModel.onAnswer(false)}"/>
-        <!--                -->
+                android:onClick="@{() -> gameViewModel.onAnswer(false)}"
+                android:enabled="@{!gameViewModel.question.attempted}"
+                />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/question_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/rnm02" />
+        <!--                        android:checked="@{gameViewModel.question.answered}"        -->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
