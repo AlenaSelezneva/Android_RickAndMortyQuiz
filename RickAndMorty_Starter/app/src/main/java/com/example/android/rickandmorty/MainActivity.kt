@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
-        val navController = this.findNavController(R.id.nav_host_fragment)
+        val navController = this.findNavController(R.id.myNavHostFragment)
 
         NavigationUI.setupActionBarWithNavController(this,navController)
 
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = this.findNavController(R.id.nav_host_fragment)
+        val navController = this.findNavController(R.id.myNavHostFragment)
         return navController.navigateUp()
     }
 

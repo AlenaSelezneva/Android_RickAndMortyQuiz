@@ -7,24 +7,20 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.android.rickandmorty.R
+import com.example.android.rickandmorty.databinding.RulesFragmentBinding
 import com.example.android.rickandmorty.databinding.ScoreFragmentBinding
-import com.example.android.rickandmorty.screens.score.ScoreFragmentArgs
-import com.example.android.rickandmorty.screens.score.ScoreViewModel
-import com.example.android.rickandmorty.screens.score.ScoreViewModelFactory
+import com.example.android.rickandmorty.databinding.TitleFragmentBinding
+import com.example.android.rickandmorty.screens.title.TitleFragmentDirections
+
 
 class RulesFragment : Fragment() {
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
 
-        Toast.makeText(activity, "Rules onCreateView", Toast.LENGTH_SHORT).show()
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
 
-        // Inflate view and obtain an instance of the binding class.
-        val binding: ScoreFragmentBinding = DataBindingUtil.inflate(
+        val binding: RulesFragmentBinding = DataBindingUtil.inflate(
                 inflater,
                 R.layout.rules_fragment,
                 container,
