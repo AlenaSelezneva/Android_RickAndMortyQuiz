@@ -36,7 +36,13 @@
 
     <string name="rules"> Select the answer from the options given. Once you answer
     a question you can\'t change your answer. Once you have answered all the questions you will go to a page
-    that tells you your score</string>
+    that tells you your score
+    </string>
+
+    <string name="about"> The Rick and Morty quiz will help remind you of important concepts you have learned by watching Rick and Morty. \n
+        Consider modifying the questions and graphics to make this game your own! \n
+        (Nope)
+    </string>
 
     <string name="question_1">The Rick &amp; Morty That The Show Follows Are Originally From Dimension C-173</string>
     <string name="question_2">Jerry\'s Station Wagon Is Based On The Car From National Lampoon\'s Vacation?</string>

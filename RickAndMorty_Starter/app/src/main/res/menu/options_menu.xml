@@ -5,4 +5,7 @@
     <item
         android:id="@+id/rulesFragment"
         android:title="@string/rulesName" />
+    <item
+        android:id="@+id/aboutFragment"
+        android:title="@string/aboutName" />
 </menu>

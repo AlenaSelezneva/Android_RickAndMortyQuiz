@@ -66,4 +66,8 @@
         android:id="@+id/rulesFragment"
         android:name="com.example.android.rickandmorty.screens.rules.RulesFragment"
         android:label="RulesFragment" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.android.rickandmorty.screens.about.AboutFragment"
+        android:label="AboutFragment" />
 </navigation>
