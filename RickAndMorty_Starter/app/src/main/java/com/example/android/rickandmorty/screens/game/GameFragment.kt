@@ -90,19 +90,6 @@ class GameFragment : Fragment() {
     }
 
 
-    /** Methods for button click handlers **/
-
-//    private fun onSkip() {
-//        viewModel.onSkip()
-//    }
-//    private fun onCorrect() {
-//        viewModel.onCorrect()
-//    }
-//    private fun onEndGame() {
-//        gameFinished()
-//    }
-
-
     private fun gameFinished() {
         //Toast.makeText(activity, "Game has just finished", Toast.LENGTH_SHORT).show()
         val action = GameFragmentDirections.actionGameToScore()

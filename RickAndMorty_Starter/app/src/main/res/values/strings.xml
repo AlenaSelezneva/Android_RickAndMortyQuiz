@@ -16,14 +16,12 @@
 
 <resources>
     <string name="app_name">Rick and Morty</string>
-    <string name="skip">Skip</string>
 
     <string name="rickAndMorty">Rick and Morty</string>
     <string name="quiz">QUIZ</string>
 
     <string name="play_button">Play</string>
 
-    <string name="quote_format">\"%s\"</string>
     <string name="score_format">Current Score: %d</string>
     <string name="final_score_format">Your Score: %1$d / %2$d </string>
 
@@ -32,6 +30,13 @@
 
     <string name="next"> &gt; </string>
     <string name="previous"> &lt; </string>
+
+    <string name="rulesName"> Rules </string>
+    <string name="aboutName"> About </string>
+
+    <string name="rules"> Select the answer from the options given. Once you answer
+    a question you can\'t change your answer. Once you have answered all the questions you will go to a page
+    that tells you your score</string>
 
     <string name="question_1">The Rick &amp; Morty That The Show Follows Are Originally From Dimension C-173</string>
     <string name="question_2">Jerry\'s Station Wagon Is Based On The Car From National Lampoon\'s Vacation?</string>
