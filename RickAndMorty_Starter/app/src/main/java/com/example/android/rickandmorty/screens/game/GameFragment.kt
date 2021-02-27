@@ -54,7 +54,7 @@ class GameFragment : Fragment() {
 //                binding.rbTrue.isEnabled = false;
 //                binding.rbFalse.isEnabled = false;
 
-                if (newQuestion.answer && newQuestion.answered || newQuestion.answer && !newQuestion.answered){
+                if (newQuestion.answer && newQuestion.answered || !newQuestion.answer && !newQuestion.answered){
                     binding.rbTrue.isChecked = true;
                     binding.rbFalse.isChecked = false;
                 }else{
