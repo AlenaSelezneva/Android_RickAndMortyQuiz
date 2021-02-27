@@ -1,3 +1,8 @@
+/*
+Alena Selezneva
+Rick and Morty Quiz Assignment
+ */
+
 package com.example.android.rickandmorty.screens.game
 
 import android.os.Bundle
@@ -16,9 +21,6 @@ import com.example.android.rickandmorty.databinding.GameFragmentBinding
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.example.android.rickandmorty.screens.game.GameViewModel
 
-/**
- * Fragment where the game is played
- */
 class GameFragment : Fragment() {
     private lateinit var viewModel: GameViewModel
 
@@ -51,8 +53,11 @@ class GameFragment : Fragment() {
             binding.questionText.text = context?.getText(newQuestion.questionID)
 
             if (newQuestion.attempted){
-//                binding.rbTrue.isEnabled = false;
-//                binding.rbFalse.isEnabled = false;
+                binding.rightWrongImageView.visibility = View.VISIBLE;
+                if (newQuestion.answered)
+                    binding.rightWrongImageView.setImageResource(R.drawable.right_24)
+                else
+                    binding.rightWrongImageView.setImageResource(R.drawable.wrong_24)
 
                 if (newQuestion.answer && newQuestion.answered || !newQuestion.answer && !newQuestion.answered){
                     binding.rbTrue.isChecked = true;
@@ -66,27 +71,18 @@ class GameFragment : Fragment() {
                 binding.rbFalse.isChecked = false;
                 binding.rbTrue.isChecked = false;
 
-//                binding.rbTrue.isEnabled = true;
-//                binding.rbFalse.isEnabled = true;
+                binding.rightWrongImageView.visibility = View.GONE;
             }
 
         })
 
-//        viewModel.word.observe(viewLifecycleOwner, Observer { newWord ->
-//            binding.wordText.text = newWord
-//        })
 
         // Observer for the Game finished event
         viewModel.eventGameFinish.observe(viewLifecycleOwner, Observer<Boolean> { hasFinished ->
             if (hasFinished) gameFinished()
         })
 
-//        binding.correctButton.setOnClickListener { onCorrect() }
-//        binding.skipButton.setOnClickListener { onSkip() }
-//        binding.endGameButton.setOnClickListener { onEndGame() }
-
         return binding.root
-
     }
 
 

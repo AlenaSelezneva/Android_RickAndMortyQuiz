@@ -145,141 +145,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/rnm02" />
+
+        <ImageView
+            android:id="@+id/rightWrongImageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/score_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:srcCompat="@drawable/right_24"
+            tools:ignore="VectorDrawableCompat" />
         <!--                        android:checked="@{gameViewModel.question.answered}"        -->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 
-
-
-<!--<?xml version="1.0" encoding="utf-8"?>&lt;!&ndash;-->
-<!--  ~ Copyright (C) 2019 Google Inc.-->
-<!--  ~-->
-<!--  ~ Licensed under the Apache License, Version 2.0 (the "License");-->
-<!--  ~ you may not use this file except in compliance with the License.-->
-<!--  ~ You may obtain a copy of the License at-->
-<!--  ~-->
-<!--  ~     http://www.apache.org/licenses/LICENSE-2.0-->
-<!--  ~-->
-<!--  ~ Unless required by applicable law or agreed to in writing, software-->
-<!--  ~ distributed under the License is distributed on an "AS IS" BASIS,-->
-<!--  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
-<!--  ~ See the License for the specific language governing permissions and-->
-<!--  ~ limitations under the License.-->
-<!--  &ndash;&gt;-->
-
-<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools">-->
-
-<!--    <data>-->
-<!--        <variable-->
-<!--            name="gameViewModel"-->
-<!--            type="com.example.android.rickandmorty.screens.game.GameViewModel" />-->
-<!--    </data>-->
-
-<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--        android:id="@+id/game_layout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        tools:context=".screens.game.GameFragment">-->
-
-
-<!--        <TextView-->
-<!--            android:id="@+id/question_text"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginBottom="156dp"-->
-<!--            android:animateLayoutChanges="true"-->
-<!--            android:fontFamily="sans-serif"-->
-<!--            android:text="@{@string/quote_format(context.getText(gameViewModel.question))}"-->
-<!--            android:textAppearance="@style/TextAppearance.AppCompat.Headline"-->
-<!--            android:textColor="@color/black_text_color"-->
-<!--            android:textSize="34sp"-->
-<!--            android:textStyle="normal"-->
-<!--            app:layout_constraintBottom_toTopOf="@+id/score_text"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintVertical_chainStyle="packed"-->
-<!--            tools:text="&quot;Tuna&quot;" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/score_text"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="8dp"-->
-<!--            android:layout_marginEnd="8dp"-->
-<!--            android:fontFamily="sans-serif"-->
-<!--            android:textColor="@color/grey_text_color"-->
-<!--            android:text="@{@string/score_format(gameViewModel.score)}"-->
-<!--            android:textSize="14sp"-->
-<!--            android:textStyle="normal"-->
-<!--            app:layout_constraintBottom_toTopOf="@+id/guideline"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            tools:text="Score: 2" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/previous_button"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="8dp"-->
-<!--            android:layout_marginEnd="8dp"-->
-<!--            android:onClick="@{() -> gameViewModel.onPrevious()}"-->
-<!--            android:text="@string/previous"-->
-<!--            android:theme="@style/SkipButton"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/rbTrue"-->
-<!--            app:layout_constraintHorizontal_chainStyle="spread_inside"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/guideline" />-->
-
-
-<!--        <androidx.constraintlayout.widget.Guideline-->
-<!--            android:id="@+id/guideline"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal"-->
-<!--            app:layout_constraintGuide_end="96dp" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btnNext"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginEnd="8dp"-->
-<!--            android:onClick="@{() -> gameViewModel.onNext()}"-->
-<!--            android:text="@string/next"-->
-<!--            android:theme="@style/SkipButton"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/rbFalse"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/guideline" />-->
-
-<!--        <RadioButton-->
-<!--            android:id="@+id/rbTrue"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="8dp"-->
-<!--            android:layout_marginEnd="8dp"-->
-<!--            android:text="@string/rb_true"-->
-<!--            android:onClick="@{() -> gameViewModel.onAnswer(true)}"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/rbFalse"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/previous_button"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/guideline" />-->
-
-<!--        <RadioButton-->
-<!--            android:id="@+id/rbFalse"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="8dp"-->
-<!--            android:layout_marginEnd="8dp"-->
-<!--            android:text="@string/rb_false"-->
-<!--            android:onClick="@{() -> gameViewModel.onAnswer(false)}"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/btnNext"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/rbTrue"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/guideline" />-->
-
-<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
-<!--</layout>-->
