@@ -6,20 +6,16 @@ Rick and Morty Quiz Assignment
 package com.example.android.rickandmorty.screens.game
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment
 import com.example.android.rickandmorty.R
 import com.example.android.rickandmorty.databinding.GameFragmentBinding
 import androidx.navigation.fragment.NavHostFragment.findNavController
-import com.example.android.rickandmorty.screens.game.GameViewModel
 
 class GameFragment : Fragment() {
     private lateinit var viewModel: GameViewModel
@@ -29,15 +25,12 @@ class GameFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        // Inflate view and obtain an instance of the binding class
         binding = DataBindingUtil.inflate(
                 inflater,
                 R.layout.game_fragment,
                 container,
                 false
         )
-
-
 
         viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
         binding.gameViewModel = viewModel
@@ -72,7 +65,6 @@ class GameFragment : Fragment() {
             }
         })
 
-        // Observer for the Game finished event
         viewModel.eventGameFinish.observe(viewLifecycleOwner, Observer<Boolean> { hasFinished ->
             if (hasFinished) gameFinished()
         })
@@ -82,7 +74,6 @@ class GameFragment : Fragment() {
 
 
     private fun gameFinished() {
-        //Toast.makeText(activity, "Game has just finished", Toast.LENGTH_SHORT).show()
         val action = GameFragmentDirections.actionGameToScore()
         action.score = viewModel.score.value?:0
         action.numberOfQuestions = viewModel.getNumberOfQuestions()?:0

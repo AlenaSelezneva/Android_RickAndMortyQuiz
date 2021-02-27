@@ -1,3 +1,8 @@
+/*
+Alena Selezneva
+Rick and Morty Quiz Assignment
+ */
+
 package com.example.android.rickandmorty.screens.about
 
 import android.os.Bundle

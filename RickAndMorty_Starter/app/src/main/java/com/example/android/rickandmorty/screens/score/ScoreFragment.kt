@@ -1,17 +1,6 @@
 /*
- * Copyright (C) 2019 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+Alena Selezneva
+Rick and Morty Quiz Assignment
  */
 
 package com.example.android.rickandmorty.screens.score
@@ -28,9 +17,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.android.rickandmorty.R
 import com.example.android.rickandmorty.databinding.ScoreFragmentBinding
 
-/**
- * Fragment where the final score is shown, after the game is over
- */
 class ScoreFragment : Fragment() {
     private lateinit var viewModel: ScoreViewModel
     private lateinit var viewModelFactory: ScoreViewModelFactory
@@ -41,7 +27,6 @@ class ScoreFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
 
-        // Inflate view and obtain an instance of the binding class.
         val binding: ScoreFragmentBinding = DataBindingUtil.inflate(
                 inflater,
                 R.layout.score_fragment,
@@ -58,21 +43,6 @@ class ScoreFragment : Fragment() {
 
         binding.lifecycleOwner = viewLifecycleOwner
 
-        // Navigates back to game when button is pressed
-//        viewModel.eventPlayAgain.observe(viewLifecycleOwner, Observer { playAgain ->
-//            if (playAgain) {
-//                findNavController().navigate(ScoreFragmentDirections.actionRestart())
-//                viewModel.onPlayAgainComplete()
-//            }
-//        })
-
-        // Add observer for score
-//        viewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
-//            binding.scoreText.text = newScore.toString()
-//        })
-
-
-//        binding.playAgainButton.setOnClickListener {  viewModel.onPlayAgain()  }
         return binding.root
     }
 }

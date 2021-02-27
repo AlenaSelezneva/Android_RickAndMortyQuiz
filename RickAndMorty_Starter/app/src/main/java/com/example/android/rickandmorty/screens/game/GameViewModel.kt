@@ -1,11 +1,13 @@
+/*
+Alena Selezneva
+Rick and Morty Quiz Assignment
+ */
+
 package com.example.android.rickandmorty.screens.game
 
-import android.os.CountDownTimer
-import android.text.format.DateUtils
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.example.android.rickandmorty.R
 
@@ -21,39 +23,27 @@ class GameViewModel : ViewModel() {
     val question: LiveData<Question>
         get() = _question
 
-    // The current score
     private val _score = MutableLiveData<Int>()
     val score: LiveData<Int>
         get() = _score
 
-    // Event which triggers the end of the game
     private val _eventGameFinish = MutableLiveData<Boolean>()
     val eventGameFinish: LiveData<Boolean>
         get() = _eventGameFinish
 
-    // The list of words - the front of the list is the next word to guess
     private lateinit var questionBank: MutableList<Question>
 
     private var currentQuestionIndex:Int = 0;
     private var questionsAnswered: Int = 0;
 
-    // The previous answer
-//    private val _currentAnswer = MutableLiveData<Boolean>()
-//    val currentAnswer: LiveData<Boolean>
-//        get() = _currentAnswer
-
-
-    /**
-     * Resets the list of words and randomizes the order
-     */
     private fun initializeList() {
         questionBank = mutableListOf(
                 Question(R.string.question_1, false),
                 Question(R.string.question_2, true),
                 Question(R.string.question_3, true),
                 Question(R.string.question_4, false),
-                Question(R.string.question_5, false)
-                /*Question(R.string.question_6, true),
+                Question(R.string.question_5, false),
+                Question(R.string.question_6, true),
                 Question(R.string.question_7, false),
                 Question(R.string.question_8, true),
                 Question(R.string.question_9, false),
@@ -67,30 +57,21 @@ class GameViewModel : ViewModel() {
                 Question(R.string.question_17, true),
                 Question(R.string.question_18, false),
                 Question(R.string.question_19, false),
-                Question(R.string.question_20, true)*/
+                Question(R.string.question_20, true)
         )
         questionBank.shuffle()
     }
 
     init {
-        //_word.value = ""
         currentQuestionIndex = 0;
         questionsAnswered = 0;
         _score.value = 0
         initializeList()
 
-        //_question.value = Question(0, false)
         updateCurrentQuestion()
 
-        //nextWord()
         Log.i("GameViewModel", "GameViewModel created!")
     }
-
-    /** Methods for buttons presses **/
-    /*public fun onSkip() {
-        _score.value = (score.value)?.minus(1)
-        nextWord()
-    }*/
 
     public fun onNext() {
         currentQuestionIndex += 1;
