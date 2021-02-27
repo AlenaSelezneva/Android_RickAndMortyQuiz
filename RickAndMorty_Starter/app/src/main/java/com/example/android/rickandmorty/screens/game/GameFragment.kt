@@ -37,14 +37,12 @@ class GameFragment : Fragment() {
                 false
         )
 
-        Log.i("GameFragment", "Called ViewModelProvider.get")
+
+
         viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
-
         binding.gameViewModel = viewModel
-
         binding.lifecycleOwner = viewLifecycleOwner
 
-        /** Setting up LiveData observation relationship **/
         viewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
             binding.scoreText.text = newScore.toString()
         })
@@ -66,16 +64,13 @@ class GameFragment : Fragment() {
                     binding.rbFalse.isChecked = true;
                     binding.rbTrue.isChecked = false;
                 }
-
             }else{
                 binding.rbFalse.isChecked = false;
                 binding.rbTrue.isChecked = false;
 
                 binding.rightWrongImageView.visibility = View.GONE;
             }
-
         })
-
 
         // Observer for the Game finished event
         viewModel.eventGameFinish.observe(viewLifecycleOwner, Observer<Boolean> { hasFinished ->
