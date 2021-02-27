@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright (C) 2019 Google Inc.
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~     http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
-  -->
+<?xml version="1.0" encoding="utf-8"?>
 
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -22,7 +8,7 @@
     <fragment
         android:id="@+id/title_destination"
         android:name="com.example.android.rickandmorty.screens.title.TitleFragment"
-        android:label="title_fragment"
+        android:label="@string/TitleLabel"
         tools:layout="@layout/title_fragment">
         <action
             android:id="@+id/action_title_to_game"
@@ -36,7 +22,7 @@
     <fragment
         android:id="@+id/game_destination"
         android:name="com.example.android.rickandmorty.screens.game.GameFragment"
-        android:label="game_fragment"
+        android:label="@string/gameFragmentLabel"
         tools:layout="@layout/game_fragment">
         <action
             android:id="@+id/action_game_to_score"
@@ -51,7 +37,7 @@
     <fragment
         android:id="@+id/score_destination"
         android:name="com.example.android.rickandmorty.screens.score.ScoreFragment"
-        android:label="score_fragment"
+        android:label="@string/ScoreFragmentLabel"
         tools:layout="@layout/score_fragment">
         <argument
             android:name="score"
@@ -65,7 +51,7 @@
     <fragment
         android:id="@+id/rulesFragment"
         android:name="com.example.android.rickandmorty.screens.rules.RulesFragment"
-        android:label="RulesFragment" />
+        android:label="@string/RulesFragmentLabel" />
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.android.rickandmorty.screens.about.AboutFragment"
